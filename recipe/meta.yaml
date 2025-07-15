@@ -20,7 +20,7 @@ requirements:
     - pip
     - python
     - hatch-vcs
-    - hatchling>=1.26
+    - hatchling >=1.26
   run:
     - python
 
@@ -37,7 +37,7 @@ test:
     - pytest
 
 about:
-  home: http://github.com/RonnyPfannschmidt/iniconfig
+  home: https://github.com/RonnyPfannschmidt/iniconfig
   license: MIT
   license_family: MIT
   license_file: LICENSE
@@ -50,8 +50,8 @@ about:
     o  raises errors with proper line-numbers
     o  no bells and whistles like automatic substitutions
     o  iniconfig raises an Error if two sections have the same name.
-  dev_url: http://github.com/RonnyPfannschmidt/iniconfig
-  doc_url: http://github.com/RonnyPfannschmidt/iniconfig
+  dev_url: https://github.com/RonnyPfannschmidt/iniconfig
+  doc_url: https://github.com/RonnyPfannschmidt/iniconfig
 
 extra:
   recipe-maintainers:
