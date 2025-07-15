@@ -13,7 +13,7 @@ source:
 build:
   skip: true  # [py<38]
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
@@ -38,9 +38,20 @@ test:
 
 about:
   home: http://github.com/RonnyPfannschmidt/iniconfig
-  summary: 'iniconfig: brain-dead simple config-ini parsing'
   license: MIT
+  license_family: MIT
   license_file: LICENSE
+  summary: 'iniconfig: brain-dead simple config-ini parsing'
+  description: |
+    iniconfig is a small and simple INI-file parser module having a unique set of features:
+    o  maintains order of sections and entries
+    o  supports multi-line values with or without line-continuations
+    o  supports “#” comments everywhere
+    o  raises errors with proper line-numbers
+    o  no bells and whistles like automatic substitutions
+    o  iniconfig raises an Error if two sections have the same name.
+  dev_url: http://github.com/RonnyPfannschmidt/iniconfig
+  doc_url: http://github.com/RonnyPfannschmidt/iniconfig
 
 extra:
   recipe-maintainers:
