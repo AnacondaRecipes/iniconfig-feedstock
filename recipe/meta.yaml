@@ -1,5 +1,5 @@
 {% set name = "iniconfig" %}
-{% set version = "1.1.1" %}
+{% set version = "2.1.0" %}
 
 
 package:
@@ -7,35 +7,51 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bc3af051d7d14b2ee5ef9969666def0cd1a000e121eaea580d4a313df4b37f32
+  url: https://github.com/pytest-dev/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 8bbd2d27f7fc26cb01bf52bc99e7efd56a5a3f4e62c551aed2c9fb0cf4226153
 
 build:
+  skip: true  # [py<38]
   number: 0
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
     - pip
     - python
-    - setuptools_scm
+    - hatch-vcs
+    - hatchling >=1.26
   run:
     - python
 
 test:
+  source_files:
+    - testing
   imports:
     - iniconfig
   commands:
     - pip check
+    - pytest -vv testing
   requires:
     - pip
+    - pytest
 
 about:
-  home: http://github.com/RonnyPfannschmidt/iniconfig
-  summary: 'iniconfig: brain-dead simple config-ini parsing'
+  home: https://github.com/RonnyPfannschmidt/iniconfig
   license: MIT
+  license_family: MIT
   license_file: LICENSE
+  summary: 'iniconfig: brain-dead simple config-ini parsing'
+  description: |
+    iniconfig is a small and simple INI-file parser module having a unique set of features:
+    o  maintains order of sections and entries
+    o  supports multi-line values with or without line-continuations
+    o  supports “#” comments everywhere
+    o  raises errors with proper line-numbers
+    o  no bells and whistles like automatic substitutions
+    o  iniconfig raises an Error if two sections have the same name.
+  dev_url: https://github.com/RonnyPfannschmidt/iniconfig
+  doc_url: https://github.com/RonnyPfannschmidt/iniconfig
 
 extra:
   recipe-maintainers:
