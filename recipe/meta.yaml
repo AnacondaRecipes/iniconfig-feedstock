@@ -1,5 +1,5 @@
 {% set name = "iniconfig" %}
-{% set version = "2.1.0" %}
+{% set version = "2.3.0" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://github.com/pytest-dev/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 8bbd2d27f7fc26cb01bf52bc99e7efd56a5a3f4e62c551aed2c9fb0cf4226153
+  sha256: b485a7f6c060b2e758b6e58fd1bf7349a6f99954110ca61ceb59af25cf4ff458
 
 build:
-  skip: true  # [py<38]
+  skip: true  # [py<310]
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
@@ -19,8 +19,8 @@ requirements:
   host:
     - pip
     - python
-    - hatch-vcs
-    - hatchling >=1.26
+    - setuptools >=77
+    - setuptools-scm >=8
   run:
     - python
 
@@ -34,7 +34,7 @@ test:
     - pytest -vv testing
   requires:
     - pip
-    - pytest
+    - pytest >=8.4.2
 
 about:
   home: https://github.com/RonnyPfannschmidt/iniconfig
