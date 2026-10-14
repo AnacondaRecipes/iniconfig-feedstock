@@ -1,6 +1,5 @@
 {% set name = "iniconfig" %}
-{% set version = "2.3.0" %}
-
+{% set version = "2.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +7,7 @@ package:
 
 source:
   url: https://github.com/pytest-dev/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: b485a7f6c060b2e758b6e58fd1bf7349a6f99954110ca61ceb59af25cf4ff458
+  sha256: 1dbb0a0b9cfc25fff72ef152d8b10b9c59373e02bcc02189dbc19ab661c385c1
 
 build:
   skip: true  # [py<310]
@@ -41,7 +40,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'iniconfig: brain-dead simple config-ini parsing'
+  summary: "iniconfig: brain-dead simple config-ini parsing"
   description: |
     iniconfig is a small and simple INI-file parser module having a unique set of features:
     o  maintains order of sections and entries
